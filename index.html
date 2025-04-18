@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Educational Resource Portal</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header>
+    <h1>Educational Resource Portal</h1>
+    <nav>
+      <ul>
+        <li><a href="#timetable">Timetable</a></li>
+        <li><a href="#doubt">Doubt Portal</a></li>
+        <li><a href="#aptitude">Aptitude Test</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Timetable Section -->
+  <section id="timetable">
+    <h2>Weekly Timetable</h2>
+    <table>
+      <tr>
+        <th>Day</th>
+        <th>Subject</th>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td><a href="subjects/mathematics.html">Mathematics</a></td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td><a href="subjects/physics.html">Physics</a></td>
+      </tr>
+      <!-- Add more days and subjects -->
+    </table>
+  </section>
+
+  <!-- Doubt Resolution Portal -->
+  <section id="doubt">
+    <h2>Doubt Resolution Portal</h2>
+    <p>Select a common question:</p>
+    <select onchange="showAnswer(this.value)">
+      <option value="">--Select a question--</option>
+      <option value="q1">How to prepare for exams?</option>
+      <option value="q2">Where to find old question papers?</option>
+    </select>
+    <div id="answerBox"></div>
+  </section>
+
+  <!-- Aptitude Test Section -->
+  <section id="aptitude">
+    <h2>Aptitude Test</h2>
+    <p>Choose a test to begin:</p>
+    <ul>
+      <li><a href="tests/quant.html">Quantitative Aptitude</a></li>
+      <li><a href="tests/logical.html">Logical Reasoning</a></li>
+      <li><a href="tests/verbal.html">Verbal Ability</a></li>
+    </ul>
+  </section>
+
+  <!-- Login Section -->
+  <section id="login">
+    <h2>User Login</h2>
+    <form action="/login" method="post">
+      <label>Email:</label><input type="email" name="email" required /><br />
+      <label>Password:</label><input type="password" name="password" required /><br />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/signup">Sign up</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Educational Resource Portal</p>
+  </footer>
+
+  <script>
+    function showAnswer(value) {
+      const answerBox = document.getElementById("answerBox");
+      if (value === "q1") {
+        answerBox.innerHTML = "<p>Start early, revise regularly, and solve past papers.</p>";
+      } else if (value === "q2") {
+        answerBox.innerHTML = "<p>Go to the timetable section and click on your subject.</p>";
+      } else {
+        answerBox.innerHTML = "";
+      }
+    }
+  </script>
+</body>
+</html>
