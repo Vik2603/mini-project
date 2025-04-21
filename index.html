@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Educational Resource Portal</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="timetable.css" />
+  <!-- Add Supabase JS library with proper version using official CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.33.2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Educational Resource Portal</h1>
+    <nav>
+      <ul>
+        <li class="dropdown">
+          <a href="#timetable">Timetable</a>
+          <div class="dropdown-content">
+            <a href="#" onclick="fetchTimetable('semester 3'); return false;">Semester 3</a>
+            <a href="#" onclick="fetchTimetable('semester 4'); return false;">Semester 4</a>
+            <a href="#" onclick="fetchTimetable('semester 5'); return false;">Semester 5</a>
+            <a href="#" onclick="fetchTimetable('semester 6'); return false;">Semester 6</a>
+            <a href="#" onclick="fetchTimetable('semester 7'); return false;">Semester 7</a>
+          </div>
+        </li>
+        <li><a href="#doubt">Doubt Portal</a></li>
+        <li><a href="#aptitude">Aptitude Test</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Timetable Section -->
+  <section id="timetable">
+    <h2>Weekly Timetable</h2>
+    <div id="semester-info">Select a semester from the dropdown menu above</div>
+    <div id="loading-timetable" class="loader" style="display: none;"></div>
+    <div id="timetable-container">
+      <table id="timetable-data">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>8:30-9:30</th>
+            <th>9:30-10:30</th>
+            <th>10:30-11:00 (Break)</th>
+            <th>11:00-12:00</th>
+            <th>12:00-1:00 </th>
+            <th>1:00-2:00 (Lunch)</th>
+            <th>2:00-3:00</th>
+            <th>3:00-4:00</th>
+            <th>4:00-5:00</th>
+            <th>5:00-6:00</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Timetable data will be loaded from Supabase -->
+          <tr>
+            <td colspan="11">Please select a semester from the dropdown menu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Doubt Resolution Portal -->
+  <section id="doubt">
+    <h2>Doubt Resolution Portal</h2>
+    <p>Select a common question:</p>
+    <select onchange="showAnswer(this.value)">
+      <option value="">--Select a question--</option>
+      <option value="q1">How to prepare for exams?</option>
+      <option value="q2">Where to find old question papers?</option>
+    </select>
+    <div id="answerBox"></div>
+  </section>
+
+  <!-- Aptitude Test Section -->
+  <section id="aptitude">
+    <h2>Aptitude Test</h2>
+    <p>Choose a test to begin:</p>
+    <div class="aptitude-blocks">
+      <div class="aptitude-block">
+        <h3>Quantitative Aptitude</h3>
+        <p>Test your mathematical and numerical abilities with our Quantitative Aptitude tests.</p>
+        <a href="tests/quant.html"><button>Start Test</button></a>
+      </div>
+      <div class="aptitude-block">
+        <h3>Logical Reasoning</h3>
+        <p>Challenge your analytical and problem-solving skills with our Logical Reasoning tests.</p>
+        <a href="tests/logical.html"><button>Start Test</button></a>
+      </div>
+      <div class="aptitude-block">
+        <h3>Verbal Ability</h3>
+        <p>Improve your language skills and verbal reasoning with our Verbal Ability tests.</p>
+        <a href="tests/verbal.html"><button>Start Test</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login Section -->
+  <section id="login">
+    <h2>User Login</h2>
+    <form action="/login" method="post">
+      <label>Email:</label><input type="email" name="email" required /><br />
+      <label>Password:</label><input type="password" name="password" required /><br />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/signup">Sign up</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Educational Resource Portal</p>
+  </footer>
+
+  <script>
+    // Show answer for doubt portal
+    function showAnswer(value) {
+      const answerBox = document.getElementById("answerBox");
+      if (value === "q1") {
+        answerBox.innerHTML = "<p>Start early, revise regularly, and solve past papers.</p>";
+      } else if (value === "q2") {
+        answerBox.innerHTML = "<p>Go to the timetable section and click on your subject.</p>";
+      } else {
+        answerBox.innerHTML = "";
+      }
+    }
+  </script>
+  
+  <!-- Load our timetable script after page is loaded -->
+  <script src="timetable.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and overall layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 0 20px;
+}
+
+/* Header styling */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+a {
+  color: #007bff;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+input[type="email"],
+input[type="password"],
+select {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Answer box */
+#answerBox {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-left: 4px solid #007bff;
+  font-style: italic;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #343a40;
+  color: #ccc;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  table, th, td {
+    font-size: 14px;
+  }
+}
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Aptitude blocks */
+.aptitude-blocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.aptitude-block {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.aptitude-block:hover {
+  transform: translateY(-5px);
+}
+
+.aptitude-block h3 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+/* Timetable styling */
+#timetable {
+  display: none; /* Hidden by default */
+}
+
+#timetable.active {
+  display: block; /* Shown when active */
+}
+
+#timetable table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#timetable th, #timetable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#timetable th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Break and lunch periods */
+.break-period {
+  background-color: #f2f2f2;
+  font-style: italic;
+}
+
+#timetable tr:nth-child(even) td:not(.break-period) {
+  background-color: #f9f9f9;
+}
+
+#timetable tr:hover td:not(.break-period) {
+  background-color: #e6f2ff;
+}
+
+/* Class subject styling */
+.subject {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.faculty {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.room {
+  font-size: 12px;
+  color: #666;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive table */
+@media (max-width: 1000px) {
+  #timetable {
+    overflow-x: auto;
+  }
+}
+
+/* Aptitude blocks */
+.aptitude-blocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.aptitude-block {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.aptitude-block:hover {
+  transform: translateY(-5px);
+}
+
+.aptitude-block h3 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
